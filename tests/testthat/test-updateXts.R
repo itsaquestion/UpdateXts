@@ -13,7 +13,6 @@ test_that("basic", {
   expect_equal(as.numeric(updateXts(x, new_data)["2000-01-09"]), 101)
 
 
-
   df_1 = data.frame(a = 1:10, b = 2:11)
 
   x = as.xts(df_1, order.by = date_1)
@@ -22,6 +21,9 @@ test_that("basic", {
   new_data = as.xts(df_2, order.by = date_2)
 
   expect_equal(as.numeric(updateXts(x, new_data)["2000-01-09"]), c(101, 102))
+
+  expect_equal(as.numeric(update(x, new_data)["2000-01-09"]), c(101, 102))
+
 
 })
 
@@ -62,6 +64,7 @@ test_that("errors", {
 
   expect_error(updateXts(x["1990-01-01"], x["1991-01-01"]))
 
+  expect_error(as.numeric(update(x)))
 
 })
 
