@@ -34,12 +34,11 @@ updateXts = function(x, new_data){
 
 #' @export
 update.xts = function(object, ...){
-
   y = list(...)
   if( length(y) < 1 ) {
     stop("need a new data!")
   }
-  new_data = list(...)[[1]]
+  new_data = y[[1]]
   updateXts(object, new_data)
 }
 
