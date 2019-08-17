@@ -10,23 +10,22 @@
 #' @import xts
 #' @import zoo
 #' @import checkmate
-#'
-#' @examples
 
 updateXts = function(x, new_data){
-  checkmate::assertClass(x,"xts")
-  checkmate::assertClass(new_data,"xts")
+  assertClass(x,"xts")
+  assertClass(new_data,"xts")
 
   assertSameNames(x, new_data)
   assertLength(x, new_data)
 
-  old_date = zoo::index(x)
-  new_date = zoo::index(new_data)
+  old_date = index(x)
+  new_date = index(new_data)
 
   new_xts_p1 = x[!(old_date %in% new_date)]
 
   suppressWarnings({
-    new_xts = rbind(new_xts_p1, new_data)
+    new_xts =
+      rbind(new_xts_p1, new_data)
   })
 
   new_xts

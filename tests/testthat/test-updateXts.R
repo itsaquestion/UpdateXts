@@ -56,15 +56,32 @@ test_that("errors", {
 
   x = as.xts(1:10, order.by = date_1)
 
-  date_2 = seq(as.Date("2000-01-09"), as.Date("2000-01-12"), "days")
-
-  new_data = as.xts(101:104, order.by = date_2)
-
-
   expect_error(updateXts(x, NULL))
 
   expect_error(updateXts(NULL, x))
 
   expect_error(updateXts(x["1990-01-01"], x["1991-01-01"]))
+
+
+})
+
+test_that("different names", {
+  date_1 = seq(as.Date("2000-01-01"), as.Date("2000-01-10"), "days")
+
+  x = as.xts(1:10, order.by = date_1)
+
+  date_2 = seq(as.Date("2000-01-09"), as.Date("2000-01-12"), "days")
+
+  new_data = as.xts(101:104, order.by = date_2)
+
+  df_1 = data.frame(a = 1:10, b = 2:11)
+
+  x = as.xts(df_1, order.by = date_1)
+
+  df_2 =  data.frame(x = 101:104, y = 102:105)
+  new_data = as.xts(df_2, order.by = date_2)
+
+  expect_error(updateXts(x, new_data))
+
 
 })
