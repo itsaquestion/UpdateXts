@@ -2,7 +2,7 @@
 #'
 #' use new data to update an xts object.
 #'
-#' @param object old xts object
+#' @param x old xts object
 #' @param new_data an xts object with new data
 #'
 #' @return an updated xts object
@@ -24,17 +24,17 @@
 #' update(a,b)
 #' }
 
-updateXts = function(object, new_data){
-  assertClass(object,"xts")
+updateXts = function(x, new_data){
+  assertClass(x,"xts")
   assertClass(new_data,"xts")
 
-  assertSameNames(object, new_data)
-  assertLength(object, new_data)
+  assertSameNames(x, new_data)
+  assertLength(x, new_data)
 
-  old_date = index(object)
+  old_date = index(x)
   new_date = index(new_data)
 
-  new_xts_p1 = object[!(old_date %in% new_date)]
+  new_xts_p1 = x[!(old_date %in% new_date)]
 
   suppressWarnings({
     new_xts =
