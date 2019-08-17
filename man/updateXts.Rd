@@ -2,14 +2,19 @@
 % Please edit documentation in R/updateXts.R
 \name{updateXts}
 \alias{updateXts}
+\alias{update.xts}
 \title{updateXts}
 \usage{
-updateXts(x, new_data)
+updateXts(object, new_data, ...)
+
+\method{update}{xts}(object, new_data, ...)
 }
 \arguments{
-\item{x}{old xts object}
+\item{object}{old xts object}
 
 \item{new_data}{an xts object with new data}
+
+\item{...}{do nothing}
 }
 \value{
 an updated xts object
@@ -18,6 +23,7 @@ an updated xts object
 use new data to update an xts object.
 }
 \examples{
+\dontrun{
 library(xts)
 a = as.xts(1:10, order.by = seq(Sys.Date() - 15, Sys.Date()-6, "days"))
 a
@@ -27,4 +33,5 @@ b
 
 updateXts(a,b)
 update(a,b)
+}
 }
