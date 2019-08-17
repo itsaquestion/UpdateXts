@@ -3,3 +3,4 @@
 export(updateXts)
 import(checkmate)
 import(xts)
+import(zoo)

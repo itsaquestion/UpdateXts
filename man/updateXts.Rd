@@ -9,16 +9,11 @@ updateXts(x, new_data)
 \arguments{
 \item{x}{old xts object}
 
-\item{new_data}{new data}
+\item{new_data}{an xts object with new data}
 }
 \value{
-a updated xts object
+an updated xts object
 }
 \description{
-use new data to update the old xts object(x)
-}
-\examples{
-
-
-
+use new data to update an xts object.
 }
