@@ -5,16 +5,12 @@
 \alias{update.xts}
 \title{updateXts}
 \usage{
-updateXts(object, new_data, ...)
-
-\method{update}{xts}(object, new_data, ...)
+updateXts(object, new_data)
 }
 \arguments{
 \item{object}{old xts object}
 
 \item{new_data}{an xts object with new data}
-
-\item{...}{do nothing}
 }
 \value{
 an updated xts object

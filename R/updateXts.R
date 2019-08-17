@@ -4,14 +4,13 @@
 #'
 #' @param object old xts object
 #' @param new_data an xts object with new data
-#' @param ... do nothing
 #'
 #' @return an updated xts object
+#' @aliases update.xts
 #' @export
 #' @import xts
 #' @import zoo
 #' @import checkmate
-#' @aliases update.xts
 #' @examples
 #' \dontrun{
 #' library(xts)
@@ -25,7 +24,7 @@
 #' update(a,b)
 #' }
 
-updateXts = function(object, new_data , ...){
+updateXts = function(object, new_data){
   assertClass(object,"xts")
   assertClass(new_data,"xts")
 
@@ -47,8 +46,9 @@ updateXts = function(object, new_data , ...){
 
 
 #' @export
-#' @rdname updateXts
-update.xts = updateXts
+update.xts = function(object,new_data,...){
+  updateXts(object, new_data)
+}
 
 assertSameNames = function(x, y){
   #checkmate::assertClass(x,"xts")
