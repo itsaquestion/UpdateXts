@@ -10,6 +10,16 @@
 #' @import xts
 #' @import zoo
 #' @import checkmate
+#' @examples
+#' library(xts)
+#' a = as.xts(1:10, order.by = seq(Sys.Date() - 15, Sys.Date()-6, "days"))
+#' a
+#'
+#' b = as.xts(101:110, order.by = seq(Sys.Date() - 9, Sys.Date(), "days"))
+#' b
+#'
+#' updateXts(a,b)
+#' update(a,b)
 
 updateXts = function(x, new_data){
   assertClass(x,"xts")
@@ -33,12 +43,7 @@ updateXts = function(x, new_data){
 
 
 #' @export
-update.xts = function(object, ...){
-  y = list(...)
-  if( length(y) < 1 ) {
-    stop("need a new data!")
-  }
-  new_data = y[[1]]
+update.xts = function(object, new_data, ...){
   updateXts(object, new_data)
 }
 

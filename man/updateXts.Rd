@@ -17,3 +17,14 @@ an updated xts object
 \description{
 use new data to update an xts object.
 }
+\examples{
+library(xts)
+a = as.xts(1:10, order.by = seq(Sys.Date() - 15, Sys.Date()-6, "days"))
+a
+
+b = as.xts(101:110, order.by = seq(Sys.Date() - 9, Sys.Date(), "days"))
+b
+
+updateXts(a,b)
+update(a,b)
+}
