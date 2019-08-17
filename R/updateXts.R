@@ -1,19 +1,17 @@
 #' updateXts
 #'
-#' use new data to update the old xts object(x)
+#' use new data to update an xts object.
 #'
 #' @param x old xts object
-#' @param new_data new data
+#' @param new_data an xts object with new data
 #'
-#' @return a updated xts object
+#' @return an updated xts object
 #' @export
 #' @import xts
 #' @import checkmate
 #'
 #' @examples
-#'
-#'
-#'
+
 updateXts = function(x, new_data){
   checkmate::assertClass(x,"xts")
   checkmate::assertClass(new_data,"xts")
